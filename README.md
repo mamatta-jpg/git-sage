@@ -62,6 +62,11 @@ Add to `~/.gitconfig` for a one-keystroke workflow:
 
 Then: `git add -A && git ai`
 
+## From the same author
+
+- [env-leak](https://github.com/mamatta-jpg/env-leak) — scan your codebase for leaked API keys and secrets
+- [standup-gen](https://github.com/mamatta-jpg/standup-gen) — auto-generate your daily standup from git history
+
 ## License
 
 MIT
