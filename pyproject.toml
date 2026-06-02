@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name = "git-sage"
+version = "0.1.0"
+description = "AI-powered commit message generator for Claude and OpenAI"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.9"
+keywords = ["git", "ai", "commit", "developer-tools", "openai", "claude", "productivity"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Topic :: Software Development",
+]
+dependencies = [
+    "click>=8.0",
+    "anthropic>=0.25",
+    "openai>=1.0",
+]
+
+[project.optional-dependencies]
+anthropic = ["anthropic>=0.25"]
+openai = ["openai>=1.0"]
+
+[project.urls]
+Homepage = "https://github.com/mansourmatta/git-sage"
+Repository = "https://github.com/mansourmatta/git-sage"
+"Bug Tracker" = "https://github.com/mansourmatta/git-sage/issues"
+
+[project.scripts]
+git-sage = "git_sage.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["git_sage*"]
