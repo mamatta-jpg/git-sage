@@ -1,3 +1,31 @@
+Metadata-Version: 2.4
+Name: git-sage-mm
+Version: 0.1.1
+Summary: AI-powered commit message generator for Claude and OpenAI
+License: MIT
+Project-URL: Homepage, https://github.com/mamatta-jpg/git-sage
+Project-URL: Repository, https://github.com/mamatta-jpg/git-sage
+Project-URL: Bug Tracker, https://github.com/mamatta-jpg/git-sage/issues
+Keywords: git,ai,commit,developer-tools,openai,claude,productivity
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Software Development
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: click>=8.0
+Requires-Dist: anthropic>=0.25
+Requires-Dist: openai>=1.0
+Provides-Extra: anthropic
+Requires-Dist: anthropic>=0.25; extra == "anthropic"
+Provides-Extra: openai
+Requires-Dist: openai>=1.0; extra == "openai"
+Provides-Extra: dev
+Requires-Dist: pytest>=7.0; extra == "dev"
+Dynamic: license-file
+
 # git-sage
 
 > AI-powered commit message generator. Stage your changes, run `git-sage`, get a great commit message.

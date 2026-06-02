@@ -1,0 +1,2 @@
+[console_scripts]
+git-sage = git_sage.cli:main

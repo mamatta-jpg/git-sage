@@ -1,0 +1,14 @@
+LICENSE
+README.md
+pyproject.toml
+git_sage/__init__.py
+git_sage/ai.py
+git_sage/cli.py
+git_sage/git_ops.py
+git_sage_mm.egg-info/PKG-INFO
+git_sage_mm.egg-info/SOURCES.txt
+git_sage_mm.egg-info/dependency_links.txt
+git_sage_mm.egg-info/entry_points.txt
+git_sage_mm.egg-info/requires.txt
+git_sage_mm.egg-info/top_level.txt
+tests/test_prompt.py
