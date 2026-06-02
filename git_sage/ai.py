@@ -4,18 +4,26 @@ MAX_DIFF_CHARS = 8000  # Truncate huge diffs to stay within token limits
 
 
 def build_prompt(diff: str, files: list[str]) -> str:
-    # TODO(human): Design the prompt that turns a git diff into a commit message.
-    # This function receives the staged diff and a list of changed filenames.
-    # Return a single string (the full prompt) to send to the AI.
-    #
-    # Things to consider:
-    #   - Should you use a system prompt + user message, or a single string?
-    #     (This wrapper sends one combined string, so keep it as one block)
-    #   - Should you enforce conventional commits format (feat:, fix:, etc.)?
-    #   - How much of the diff should you include? (hint: MAX_DIFF_CHARS is already applied below)
-    #   - Should you tell the model to output ONLY the message, or explain its reasoning?
-    #   - What tone/length constraints matter? (subject line ≤ 72 chars is a git best practice)
-    pass
+    file_list = "\n".join(f"- {path}" for path in files) if files else "- (unknown files)"
+    return f"""You write excellent git commit messages.
+
+Write a single commit message for the staged changes below.
+
+Requirements:
+- Output only the commit message, with no explanation, quotes, or code fences.
+- Use imperative mood.
+- Keep the first line as a concise subject line, ideally 72 characters or fewer.
+- Prefer a conventional commit prefix when it clearly fits (for example: feat:, fix:, docs:, refactor:, test:, chore:), but do not force one if it would be misleading.
+- If useful, include a blank line followed by a short body that explains the why or highlights important changes.
+- Use the file list and diff to infer the main purpose of the change.
+- Be specific and avoid vague subjects like 'update files' or 'misc changes'.
+
+Changed files:
+{file_list}
+
+Diff:
+{diff}
+"""
 
 
 def generate_message(diff: str, files: list[str]) -> str:
